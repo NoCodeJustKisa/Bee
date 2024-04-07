@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="security improvements + templates">
-      <change afterPath="$PROJECT_DIR$/beehive/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/beehive/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/beehive/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/beehive/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/beehive/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/beehive/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/beehive/views.py" afterDir="false" />
+    <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="app added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bees/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bees/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bees/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bees/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beehive/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +121,7 @@
       <workItem from="1712402318493" duration="64000" />
       <workItem from="1712430287233" duration="25000" />
       <workItem from="1712506727120" duration="1116000" />
-      <workItem from="1712507868275" duration="10617000" />
+      <workItem from="1712507868275" duration="11369000" />
     </task>
     <task id="LOCAL-00001" summary="What do I even say">
       <option name="closed" value="true" />
@@ -153,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712509739280</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="app added">
+      <option name="closed" value="true" />
+      <created>1712521248750</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712521248750</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +176,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="What do I even say" />
     <MESSAGE value="security improvements + templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="security improvements + templates" />
+    <MESSAGE value="app added" />
+    <option name="LAST_COMMIT_MESSAGE" value="app added" />
   </component>
 </project>
