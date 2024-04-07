@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Ready Design</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F3F4F6;
+        }
+    </style>
+</head>
+<body>
+    <header class="flex flex-col justify-center bg-gray-100">
+        <nav class="flex gap-0 justify-between max-md:flex-wrap max-md:max-w-full">
+            <div class="flex flex-col items-center px-4 pt-5 -mb-px text-base font-bold text-black whitespace-nowrap bg-amber-200 basis-0 max-md:hidden">
+                <a href="/">
+                    <img alt="Beehive Logo" loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7fd4286cb72741b8021e4554977c1d34cb0dcb1f9f3b0978a3af8d97f3fc09cb?apiKey=5cdcc928897240d9a0f7d2dbb8023ad9&" class="aspect-[0.86] w-[31px]">
+                </a>
+                <div aria-hidden="true" class="self-stretch mt-2.5">BEEHIVE</div>
+                <img alt="Beehive Feature" loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/70e2b0e2230fce71fb2e3c1d34e92b747abd632bcf9cd5844cdd35e55c3f0ef1?apiKey=5cdcc928897240d9a0f7d2dbb8023ad9&" class="mt-36 aspect-[1.02] w-[46px] max-md:mt-10">
+            </div>
+            <div class="flex flex-col flex-1 self-start max-md:max-w-full">
+                <div class="flex flex-col justify-center items-end px-16 py-5 bg-white max-md:px-5 max-md:max-w-full">
+                    <a href="/profile">
+                        <img alt="User Profile" loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b811fbb796a45147065ef6ae2e4dbd0cb59b5f4f4373e8459d3b5946c897632b?apiKey=5cdcc928897240d9a0f7d2dbb8023ad9&" class="aspect-[1.61] w-[65px]">
+                    </a>
+                </div>
+                <div class="flex gap-5 justify-between mt-8 mr-10 ml-8 font-bold whitespace-nowrap max-md:flex-wrap max-md:mr-2.5 max-md:max-w-full">
+                    <a href="/" class="flex-auto my-auto text-3xl text-black">Главная</a>
+                    <a href="/add-task" class="justify-center items-center px-16 py-5 text-sm text-white bg-orange-400 rounded-3xl max-md:px-5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500" tabindex="0">Add task</a>
+                </div>
+                <section class="mt-8 mr-10 ml-8 max-w-full bg-white rounded-2xl h-[1140px] w-[1275px] max-md:mr-2.5"></section>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>
