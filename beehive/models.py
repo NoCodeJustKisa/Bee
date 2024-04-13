@@ -11,13 +11,13 @@ class User(AbstractUser):
 
 class Activity(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='activities/')
+    icon = models.CharField(max_length=255)  # путь к иконке в статике
 
 
 class Mood(models.Model):
     name = models.CharField(max_length=100)
     rate = models.IntegerField()
-    image = models.ImageField(upload_to='moods/')
+    icon = models.CharField(max_length=255)  # путь к иконке в статике
 
 
 class Note(models.Model):

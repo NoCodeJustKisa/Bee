@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="efefef">
-      <change afterPath="$PROJECT_DIR$/beehive/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bees/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bees/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beehive/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beehive/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="models update something something" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +120,7 @@
       <workItem from="1712506727120" duration="1116000" />
       <workItem from="1712507868275" duration="11703000" />
       <workItem from="1713044106916" duration="654000" />
-      <workItem from="1713045662167" duration="5524000" />
+      <workItem from="1713045662167" duration="5968000" />
     </task>
     <task id="LOCAL-00001" summary="What do I even say">
       <option name="closed" value="true" />
@@ -168,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712522004330</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="models update something something">
+      <option name="closed" value="true" />
+      <created>1713051604556</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713051604556</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +193,7 @@
     <MESSAGE value="security improvements + templates" />
     <MESSAGE value="app added" />
     <MESSAGE value="efefef" />
-    <option name="LAST_COMMIT_MESSAGE" value="efefef" />
+    <MESSAGE value="models update something something" />
+    <option name="LAST_COMMIT_MESSAGE" value="models update something something" />
   </component>
 </project>
