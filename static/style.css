@@ -1,0 +1,309 @@
+body{
+background: rgb(119,166,208);
+background: linear-gradient(180deg, rgba(119,166,208,1) 0%, rgba(179,212,250,1) 100%);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.mainblock {
+    border-radius: 14px;
+    background-color: rgba(215, 236, 203, 0.5);
+    margin: 0.5% auto 0;
+    width:74%;
+    max-width: 100%;
+    min-height:100vh;
+    max-height:100%;
+    padding-top:0.1%;
+}
+.workplace{
+ position: relative;
+ border-radius: 14px;
+ background-color: #E5F4DB;
+ max-width: 98%;
+ min-height:97vh;
+ margin: 0.6% auto 0;
+}
+
+.menu {
+  width: 12%;
+  height: 100%;
+  background-color: #F7F9F6;
+  border-radius: 14px 0 0 14px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+    }
+    .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+ .menu ul li {
+  margin-bottom:10%;
+   margin-top:20%;
+    }
+.icon{
+  max-width:100%;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius: 8px 8px 8px 8px;
+}
+.icon:hover{
+  background-color: #CCE6E4;
+}
+ .menu ul li:first-child {
+  margin-top:40%;
+    }
+.logo{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:35%;
+  margin-bottom:0%;
+  max-width:100%;
+}
+.logobox{
+  text-align:center;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 130%;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+.logout {
+position: absolute;
+bottom: 5%;
+max-width:100%;
+width:100%;
+}
+.func{
+  min-width:88%;
+  min-height: 97vh;
+  max-width:88%;
+  margin-left:12%;
+  background-color: #E5F4DB;
+  border-radius: 0 14px 14px 0;
+  overflow: hidden;
+}
+header{
+  background-color:#ffc359; /*#B3E2AF*/
+  border-radius: 0 14px 0 0;
+  min-height: 9vh;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100%;
+}
+.userpic{
+    border-radius: 25px 25px 25px 25px;
+  background-color:white;
+    width:3.5%;
+  border:solid 0.3vh
+}
+.profile{
+  padding-top:1%;
+  padding-bottom:0.5%;
+  min-width:100%;
+  padding-left:90%;
+  right:0.1vh;
+}
+.app{
+  width:75%;
+  min-height:88vh;
+  float:left;
+  overflow-y: auto;
+background-color:#F0EFE7;
+}
+.add{
+  float:right;
+  width:25%;
+  border-radius: 0 0 14px 0;
+  min-height:88vh;
+  overflow-y: auto;
+background-color:#F0EFE7; /*#ecdbc4;*/
+background: url(https://sun9-16.userapi.com/impg/NEa4beyPfHOMFe6OyGoSRyiDyl4GvQ-IE_AP0w/4l5lM3x6nks.jpg?size=900x788&quality=96&sign=28686fc0395376ee85871e25b819e27b&type=album) repeat top left;
+  opacity: .8;
+}
+dropdown{
+  display:inline;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 15%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px 8px 8px 8px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  padding:1%;
+  font-style: normal;
+  font-size: 100%;
+}
+.dropdown-content a{
+  display: block;
+  margin:5%;
+    padding:3%;
+}
+.dropdown-content a:hover{
+  display: block;
+  background-color: #CCE6E4;
+  border-radius: 4px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
+ /* auth styles */
+.auth-workplace{
+ border:12px solid #B9CBCF;
+ margin: 0.5% auto 0;
+ border-radius: 14px;
+ background-color: #E5F4DB;
+ min-height:80vh;
+ max-height:100vh;
+ width:30%;
+ max-width: 100%;
+ overflow-y: auto;
+}
+.top-logo{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:5%;
+  margin-bottom:0%;
+  max-width:100%;
+}
+h1{
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  text-align:center;
+  margin-top:0;
+}
+
+.alert{
+  background-color:#EF91A0;
+  border: 2px solid black;
+  border-radius:8px;
+  width:70%;
+  margin-left:15%;
+  text-align:center;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 100%;
+}
+.auth{
+  margin:5%;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 100%;
+}
+
+.auth-button {
+  width:fit-content;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:5%;
+  background-color: #ffc359;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: block;
+  font-family: "Nunito",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  outline: none;
+  padding: 13px 23px;
+}
+
+.auth-button:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+input{
+       border: 3px solid #000;
+       border-radius: 5px;
+       height: 50px;
+       line-height: normal;
+       color: #282828;
+       display: block;
+       width: 100%;
+       box-sizing: border-box;
+       user-select: auto;
+       font-size: 20px;
+       padding: 0 6px;
+       padding-left: 12px;
+}
+.offer{
+  font-family: "Nunito",sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  outline: none;
+  padding: 13px 23px;
+}
+.chatbox{
+  background-color:white;
+  height:70vh;
+  margin-left:5%;
+  width:90%;
+  border-radius:14px 14px 0 0;
+  border:2px solid black;
+  margin-bottom:0;
+}
+.message-input{
+  background-color:white;
+  margin-left:5%;
+  height:8vh;
+  width:77%;
+  border-radius: 0 0 0 14px;
+  border:2px solid black;
+  float:left;
+  margin-top:0;
+  margin-right:0;
+}
+.chat-input{
+  display:inline;
+  margin:0;
+}
+.send-button {
+  width:fit-content;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:5%;
+  background-color: #ffc359;
+  border: 2px solid #222222;
+  border-radius: 0 0 14px 0;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: block;
+  font-family: "Nunito",sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 20px;
+  outline: none;
+  height:8vh;
+  margin-left:0;
+}

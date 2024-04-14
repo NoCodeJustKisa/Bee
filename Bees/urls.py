@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from beehive import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('registration/', views.registration, name="registration"),
+    path('login/',views.login, name="login"),
+    path('logout/',views.logout, name="logout"),
 ]
