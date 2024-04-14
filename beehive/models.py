@@ -45,7 +45,7 @@ class Message(models.Model):
     response = models.TextField()  # ответ ллм
     created_at = models.DateTimeField(auto_now_add=True)
 
-# ПОПРАВИТЬ С УЧЕТОМ ТОГО ЧТО БУДЕТ ПРОВЕРКА НА ПОЛНУЮ ЗАПОЛНЕННОСТЬ ЗАПИСИ
+
 class Record(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='records')
     mood = models.ForeignKey(Mood, on_delete=models.CASCADE, blank=True, null=True)
