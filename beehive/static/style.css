@@ -229,7 +229,7 @@ h1{
   cursor: pointer;
   display: block;
   font-family: "Nunito",sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 20px;
   outline: none;
@@ -366,7 +366,7 @@ textarea{
   cursor: pointer;
   display: block;
   font-family: "Nunito",sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 20px;
   outline: none;
@@ -427,4 +427,21 @@ textarea{
   font-weight: 400;
   border:1px solid black;
   overflow-y:auto;
+}
+.dj-form-widget{
+       border: 3px solid #000;
+       border-radius: 5px;
+       height: 50px;
+       line-height: normal;
+       color: #282828;
+       display: block;
+       width: 100%;
+       box-sizing: border-box;
+       user-select: auto;
+       font-size: 20px;
+       padding: 0 6px;
+       padding-left: 12px;
+}
+.form-group{
+       font-size: 20px;
 }

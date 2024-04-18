@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="didn't do shit spend 4 hours">
+      <change afterPath="$PROJECT_DIR$/templates/registration/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bees/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bees/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beehive/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beehive/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beehive/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/static/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/beehive/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +60,7 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -129,7 +134,8 @@
       <workItem from="1713106575024" duration="106000" />
       <workItem from="1713106686963" duration="529000" />
       <workItem from="1713108567233" duration="9766000" />
-      <workItem from="1713449238251" duration="8963000" />
+      <workItem from="1713449238251" duration="9270000" />
+      <workItem from="1713463233055" duration="5524000" />
     </task>
     <task id="LOCAL-00001" summary="What do I even say">
       <option name="closed" value="true" />
@@ -227,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713456850500</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="didn't do shit spend 4 hours">
+      <option name="closed" value="true" />
+      <created>1713463200019</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713463200019</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

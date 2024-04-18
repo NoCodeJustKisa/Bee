@@ -4,4 +4,4 @@ from beehive.models import User
 # Register your models here.
 admin.site.register(User, UserAdmin)
 
-#бля я ебу чоли какова хуя в админке не пояявлется мой юзер sooooqa
+#бля я ебу чоли какова хуя в админке не пояявлется мой экстендед юзер sooooqa ну хоть тзшка есть
