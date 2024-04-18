@@ -3,10 +3,10 @@
 <html lang="ru">
   <head>
       <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="stylesheet" href="{% static 'style.css' %}">
+      <link rel="stylesheet" type="text/css"  href="{% static 'style.css' %}">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <title>{{ context.title }}</title>
+    <title>{{ title }}</title>
   </head>
   <body>
   <div class="mainblock">
@@ -23,7 +23,10 @@
             <li><a href="analytics/"><img src="https://img.icons8.com/?size=32&id=sMkBce0cu0nT&format=png" alt="Аналитика" class="icon"></a></li>
         </ul>
          <div class="logout">
-         <a href=""><img src="https://img.icons8.com/?size=32&id=e8GQoEeANuJO&format=png" alt="Выйти" class="icon"></a>
+         <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="a-button">Выйти</button>
+</form>
          </div>
     </div>
       <!--Рабочевое -->
@@ -37,7 +40,6 @@
   <div class="dropdown-content">
     <a href="#">Профиль</a>
     <a href="#">Изменить данные</a>
-    <a href="logout">Выйти</a>
   </div>
   </span>
 </div>

@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" type="text/css"  href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title> Авторизация </title>
+  </head>
+  <body>
+
+    <div class="auth-workplace">
+ <div class="logobox">
+         <a href=""><img src="https://img.icons8.com/?size=80&id=x92wwwMShNgw&format=png" alt="Запись" class="top-logo">
+         <p>Beehive</p>
+          </a>
+          </div>
+    <!-- c h1 -->
+      {% block auth %} {% endblock %}
+    <!-- до а -->
+     </div>
+  </body>
+</html>

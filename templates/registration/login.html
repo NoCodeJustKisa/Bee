@@ -1,0 +1,15 @@
+{% extends "mother_log.html" %}
+{% block auth %}
+      <h1>Авторизация</h1>
+        {% if error_message %}
+        <div class="alert" role="alert">{{ error_message }}</div>
+        {% endif %}
+      <form method="post" class="auth">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.as_p }}
+            <button type="submit" class="auth-button">Войти</button>
+        </div>
+      </form>
+      <a href="register" class="offer">Нет аккаунта? Зарегистрируйтесь.</a>
+{% endblock %}

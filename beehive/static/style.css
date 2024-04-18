@@ -267,31 +267,33 @@ input{
   background-color:white;
   height:70vh;
   margin-left:5%;
-  width:90%;
+  width:80%;
   border-radius:14px 14px 0 0;
   border:2px solid black;
   margin-bottom:0;
+  overflow-y:auto;
+  padding-left:5%;
+  padding-right:5%;
+}
+.chat-input{
+  margin-top:0;
 }
 .message-input{
   background-color:white;
   margin-left:5%;
   height:8vh;
-  width:77%;
+  width:72.5%;
   border-radius: 0 0 0 14px;
   border:2px solid black;
   float:left;
   margin-top:0;
   margin-right:0;
-}
-.chat-input{
-  display:inline;
-  margin:0;
+  display:inline-block;
 }
 .send-button {
   width:fit-content;
   margin-right:auto;
   margin-left:auto;
-  margin-top:5%;
   background-color: #ffc359;
   border: 2px solid #222222;
   border-radius: 0 0 14px 0;
@@ -306,4 +308,123 @@ input{
   outline: none;
   height:8vh;
   margin-left:0;
+}
+.chat-wrap{
+  padding:0;
+}
+.llm-message{
+  background-color:#CCE6E4;
+  border-radius: 14px 14px 14px 14px;
+  width:fit-content;
+  white-space: initial;
+  max-width:80%;
+  padding:1%;
+  padding-left:5%;
+  font-family: "Nunito",sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top:5%;
+}
+.user-message{
+  background-color:#ffc359;
+  border-radius: 14px 14px 14px 14px;
+  width:fit-content;
+  white-space: initial;
+  max-width:80%;
+  padding:1%;
+  padding-left:5%;
+  font-family: "Nunito",sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top:5%;
+  float:right;
+}
+textarea{
+       border: 3px solid #000;
+       border-radius: 5px;
+       height: 50px;
+       line-height: normal;
+       color: #282828;
+       display: block;
+       width: 100%;
+       box-sizing: border-box;
+       user-select: auto;
+       font-size: 20px;
+       padding: 0 6px;
+       padding-left: 12px;
+}
+.a-button{
+  width:fit-content;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:5%;
+  background-color: #ffc359;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: block;
+  font-family: "Nunito",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  outline: none;
+  padding: 13px 23px;
+}
+.note{
+  background-color:#ffc359;
+  border:1px solid black;
+  border-radius: 8px 8px 8px 8px;
+  width:83%;
+  white-space: initial;
+  padding:1%;
+  padding-left:5%;
+  font-family: "Nunito",sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin:5%;
+}
+.del-obj-ico{
+  color:black;
+  border:0px;
+  width:fit-content;
+  padding:0;
+  height:25px;
+  margin-left:90%;
+  background-color:transparent;
+}
+.check-in{
+  background-color:white;
+  height:70vh;
+  margin-left:5%;
+  width:80%;
+  border-radius:14px 14px 14px 14px;
+  border:2px solid black;
+  margin-bottom:0;
+  overflow-y:auto;
+  padding-left:5%;
+  padding-right:5%;
+}
+.daily-form{
+
+}
+.checkin-p{
+  font-size:25px;
+  margin-top:2%;
+  text-align:center;
+}
+.cont-checkin{
+  background-color:#CCE6E4;
+  border-radius: 14px 14px 14px 14px;
+  width:94%;
+  height:20vh;
+  white-space: initial;
+  padding:1%;
+  padding-left:5%;
+  font-family: "Nunito",sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border:1px solid black;
+  overflow-y:auto;
 }
