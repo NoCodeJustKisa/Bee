@@ -21,6 +21,6 @@ from beehive import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('log/', include("django.contrib.auth.urls"), name="log"),
+    path('accounts/', include("django.contrib.auth.urls"), name="log"),
     path('main/', views.mainpage, name="main"),
 ]
