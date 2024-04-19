@@ -10,7 +10,9 @@
             {% endfor %}
         </div>
         {% endif %}
-          
+          {% if message %}
+          <h1 style="margin-top:40%">{{ message }}</h1>
+          {% else %}
             <form method="POST">
                 {% csrf_token %}
             <p class="checkin-p">Как настроение?</p>
@@ -23,13 +25,14 @@
               </div>
               <input type="submit" class="auth-button" value="Отметиться">
             </form>
+          {% endif %}
           </div>
 {% endblock %}
 {% block add %}
 <a class="a-button" href="/create_note">Создать заметку</a>
           <div class="note">Заболела и скучала дома
           <form action="" method="post"> 
-        <!-- {% csrf_token %} -->
+            {% csrf_token %}
          <input type="submit" class="del-obj-ico" value="Х">
            </form>
           </div>
