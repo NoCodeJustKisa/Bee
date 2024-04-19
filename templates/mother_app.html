@@ -13,14 +13,15 @@
     <div class="workplace">
        <div class="menu">
          <div class="logobox">
-         <a href=" "><img src="https://img.icons8.com/?size=80&id=x92wwwMShNgw&format=png" alt="Запись" class="logo">
+         <a href="/main"><img src="https://img.icons8.com/?size=80&id=x92wwwMShNgw&format=png" alt="Запись" class="logo">
          <p>Beehive</p>
           </a>
           </div>
         <ul>
-            <li><a href="record/"><img src="https://img.icons8.com/?size=32&id=TwqkIprBArPo&format=png" alt="Запись" class="icon"></a></li>
-            <li><a href="chat/"><img src="https://img.icons8.com/?size=32&id=r8OlFT4AW9J5&format=png" alt="Чат" class="icon"></a></li>
-            <li><a href="analytics/"><img src="https://img.icons8.com/?size=32&id=sMkBce0cu0nT&format=png" alt="Аналитика" class="icon"></a></li>
+            <li><a href="/main"><img src="https://img.icons8.com/?size=32&id=TwqkIprBArPo&format=png" alt="Запись" class="icon"></a></li>
+            <li><a href="/history"><img src="https://img.icons8.com/?size=32&id=Vf6WaxVDVsqV&format=png" alt="История" class="icon"></a></li>
+            <li><a href="/chat"><img src="https://img.icons8.com/?size=32&id=r8OlFT4AW9J5&format=png" alt="Чат" class="icon"></a></li>
+            <li><a href="/analytics"><img src="https://img.icons8.com/?size=32&id=sMkBce0cu0nT&format=png" alt="Аналитика" class="icon"></a></li>
         </ul>
          <div class="logout">
          <form method="post" action="{% url 'logout' %}">
@@ -33,6 +34,7 @@
       <div class="func">
         <header>
 <div class="profile">
+   Привет, {{ username }}
 <a href="profile"><img src="https://img.icons8.com/?size=80&id=JXEhnqJR1TJ9&format=png" alt="Это ты!" class="userpic"></a>
     <!--тут должен был быть дд -->
   <span class="dropdown">
@@ -50,7 +52,19 @@
         </div>
         <!--бочки -->
         <div class="add">
-          {% block add %} {% endblock %}
+              <a class="a-button" href="/create_note">Создать заметку</a>
+           {% for note in notes %}
+          <div class="note">{{note.text}}
+          <form action="" method="post">
+            {% csrf_token %}
+              <!-- ЭТО УЖАСНО -->
+        <input type="hidden" name="form_type" value="delete_note_form">
+        <input type="hidden" name="note_id" value="{{ note.id }}">
+              <!-- зато работает -->
+         <input type="submit" class="del-obj-ico" value="Х">
+           </form>
+          </div>
+           {% endfor %}
         </div>
       </div>
      </div>

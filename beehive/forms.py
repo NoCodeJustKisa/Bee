@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
-from beehive.models import User, Record, Mood, Activity
+from beehive.models import User, Record, Mood, Activity, Note
 from django.forms import ModelChoiceField, RadioSelect
 
 
@@ -28,7 +28,15 @@ class CheckinForm(forms.ModelForm):
         if mood is None and activity is None:
             raise forms.ValidationError('Вы не можете ничего не отметить')
 
-    def clean(self):
+    def clean(self): #вызываем мору шобы была у нас кастомная валидация
         cleaned_data = super().clean()
         self.clean_mora()
         return cleaned_data
+
+
+class NoteForm(forms.ModelForm):
+    text = forms.CharField(label=" ", widget=forms.Textarea(attrs={'class': 'dj-note-widget'}))
+
+    class Meta:
+        model = Note
+        fields = ('text',)

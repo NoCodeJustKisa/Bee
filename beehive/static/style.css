@@ -111,7 +111,8 @@ header{
   padding-top:1%;
   padding-bottom:0.5%;
   min-width:100%;
-  padding-left:90%;
+  padding-right:10%;
+  padding-left:80%;
   right:0.1vh;
 }
 .app{
@@ -473,4 +474,15 @@ label {
 }
 .errorlist{
     text-decoration: none;
+}
+.dj-note-widget{
+    width: 100%;
+  height: 70%;
+  min-height: 55vh;
+  padding: 35px 20px;
+  background: repeating-linear-gradient(#F1EDE9, #F1EDE9 31px, #94ACD4 31px, #94ACD4 32px);
+  font-family: 'Shadows Into Light', cursive;
+  line-height: 32px;
+  outline: 0;
+  font-size: 22px;
 }

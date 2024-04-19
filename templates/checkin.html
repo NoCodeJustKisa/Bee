@@ -15,6 +15,9 @@
           {% else %}
             <form method="POST">
                 {% csrf_token %}
+                <!-- Идентификатор формы -->
+                <input type="hidden" name="form_type" value="record_form">
+                <!-- Идентификатор формы -->
             <p class="checkin-p">Как настроение?</p>
               <div class="cont-checkin">
                   {{ form.mood }}
@@ -26,14 +29,5 @@
               <input type="submit" class="auth-button" value="Отметиться">
             </form>
           {% endif %}
-          </div>
-{% endblock %}
-{% block add %}
-<a class="a-button" href="/create_note">Создать заметку</a>
-          <div class="note">Заболела и скучала дома
-          <form action="" method="post"> 
-            {% csrf_token %}
-         <input type="submit" class="del-obj-ico" value="Х">
-           </form>
           </div>
 {% endblock %}

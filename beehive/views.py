@@ -4,9 +4,9 @@ from zoneinfo import ZoneInfo
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import RegistrationForm, CheckinForm
+from .forms import RegistrationForm, CheckinForm, NoteForm
 from beehive.models import User as BeehiveUser
-from beehive.models import Record
+from beehive.models import Record, Note
 # Create your views here.
 
 
@@ -27,6 +27,7 @@ def register(request):
 @login_required(redirect_field_name='login')
 def mainpage(request):
     current_user = request.user #берем джанговского юзера
+    notes = Note.objects.filter(user=request.user).order_by('-created_at')
     beehive_user = BeehiveUser.objects.get(username=current_user) #а теперь берем юзера расширенного с тзшкой
     user_timezone = ZoneInfo(beehive_user.timezone) #пихаем строку в ZoneInfo и получаем тз объект с тз пользователя
     current_date = datetime.datetime.now(user_timezone).date() #Получаем че там за день у пользователя сейчас
@@ -39,21 +40,43 @@ def mainpage(request):
             break
 
     if request.method == "POST": # так тут вроде все спокойно никаких всяких ну ты поняла
-        form = CheckinForm(request.POST, instance=record) #еси запись имеется то передаем ее еси нет то делаем новую
-        if form.is_valid():
-            record = form.save(commit=False)
-            record.user = request.user
-            record.save()
+        form_type = request.POST.get('form_type')
+        if form_type == 'record_form':
+            form = CheckinForm(request.POST, instance=record) #еси запись имеется то передаем ее еси нет то делаем новую
+            if form.is_valid():
+                record = form.save(commit=False)
+                record.user = request.user
+                record.save()
+                return redirect('main')
+        elif form_type == 'delete_note_form': # если взаимодействуем с формой удаления заметки
+            note_id = request.POST.get('note_id')
+            Note.objects.get(id=note_id).delete()
             return redirect('main')
     else:
         if record and record.mood and record.activity:
             # If a record exists for today and both fields are filled, show a message
-            return render(request, "checkin.html", context={'message': 'Вы уже отмечались сегодня', 'title': 'Beehive | Отметиться'})
+            return render(request, "checkin.html", context={'message': 'Вы уже отмечались сегодня', 'title': 'Beehive | Отметиться', 'notes':notes, 'username':current_user.username})
         else:
             # If no record exists or if a record exists but a field is blank, show the form
             form = CheckinForm(instance=record)
-    return render(request, "checkin.html", context={'title': 'Beehive | Отметиться', 'form': form})
+    return render(request, "checkin.html", context={'title': 'Beehive | Отметиться', 'form': form, 'notes':notes, 'username':current_user.username})
 
 
 def home(request):
     return render(request, "home.html", context={'title': 'Beehive | Главная'})
+
+
+@login_required(redirect_field_name='login')
+def note_creation(request):
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            note = form.save(commit=False)
+            note.user = request.user
+            note.save()
+            return redirect('main')
+        else:
+            return render(request, "note_creation.html", context={'title': 'Beehive | Создать заметку', 'form': form,'notes':Note.objects.filter(user=request.user), 'username': request.user.username})
+    else:
+        form = NoteForm()
+    return render (request, "note_creation.html", context={'title': 'Beehive | Создать заметку', 'form': form,'notes':Note.objects.filter(user=request.user).order_by('-created_at'), 'username': request.user.username})

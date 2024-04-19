@@ -1,0 +1,18 @@
+{% extends 'mother_app.html' %}
+{% block app %}
+    <h1>Создать заметку</h1>
+          <div class="check-in">
+          {% if form.errors %}
+        <div class="alert" role="alert">
+            {% for error in form.errors.values %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="a-button">Создать</button>
+        </form>
+          </div>
+{% endblock %}
