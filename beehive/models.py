@@ -2,6 +2,9 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
+from django.templatetags.static import static
 # Create your models here.
 
 
@@ -26,11 +29,19 @@ class Activity(models.Model):
     name = models.CharField(max_length=100)
     icon = models.CharField(max_length=255, blank=True, null=True)  # путь к иконке в статике
 
+    def __str__(self):
+        icon_url = static(self.icon)
+        return mark_safe(f'<img src="{icon_url}" alt="{self.name}"> {self.name}')
+
 
 class Mood(models.Model):
     name = models.CharField(max_length=100)
     rate = models.IntegerField()
     icon = models.CharField(max_length=255, blank=True, null=True)  # путь к иконке в статике
+
+    def __str__(self):
+        icon_url = static(self.icon)
+        return mark_safe(f'<img src="{icon_url}" alt="{self.name}"> {self.name}')
 
 
 class Note(models.Model):

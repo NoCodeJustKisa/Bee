@@ -1,0 +1,36 @@
+{% extends "mother_app.html" %}
+{% block app %}
+          <h1>Отметиться</h1>
+          <div class="check-in">
+          
+          {% if form.errors %}
+        <div class="alert" role="alert">
+            {% for error in form.errors.values %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% endif %}
+          
+            <form method="POST">
+                {% csrf_token %}
+            <p class="checkin-p">Как настроение?</p>
+              <div class="cont-checkin">
+                  {{ form.mood }}
+              </div>
+            <p class="checkin-p">Чем вы сегодня занимались?</p>
+              <div class="cont-checkin">
+                  {{ form.activity }}
+              </div>
+              <input type="submit" class="auth-button" value="Отметиться">
+            </form>
+          </div>
+{% endblock %}
+{% block add %}
+<a class="a-button" href="/create_note">Создать заметку</a>
+          <div class="note">Сегодня я сидела на паре и скучала какой отстой
+          <form action="" method="post"> 
+        <!-- {% csrf_token %} -->
+         <input type="submit" class="del-obj-ico" value="Х">
+           </form>
+          </div>
+{% endblock %}
