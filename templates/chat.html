@@ -1,8 +1,24 @@
 {% extends "mother_app.html" %}
 {% block app %}
-    <h1>Home</h1>
-    <p>Welcome to the home page!</p>
-{% endblock %}
-{% block add %}
-    
+    <div class="chat-wrap">
+          <h1>Чат</h1>
+          <div class="chatbox"> 
+            <!-- Сообщение бота -->
+            <div class="llm-message">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis ex vel laoreet gravida. Mauris maximus ut arcu vel consectetur. Nulla varius lacus ac nisi commodo auctor. Aenean quis est sed velit vulputate pretium. Maecenas et purus orci. Quisque placerat libero eu nibh volutpat efficitur. Pellentesque consequat efficitur iaculis. Morbi tristique mauris eget facilisis interdum. Aenean vehicula nec velit vitae semper.</p></div>
+            <!--Сообщение юзера -->
+            <div class="user-message">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis ex vel laoreet gravida. Mauris maximus ut arcu vel consectetur. Nulla varius lacus ac nisi commodo auctor. Aenean quis est sed velit vulputate pretium. Maecenas et purus orci. Quisque placerat libero eu nibh volutpat efficitur. Pellentesque consequat efficitur iaculis. Morbi tristique mauris eget facilisis interdum. Aenean vehicula nec velit vitae semper.</p>
+            </div>
+          </div>
+          
+   <form class="message-form">
+    <!--{%csrf_token%} -->
+    <div class="chat-input">
+      <textarea class="message-input">
+      </textarea>
+      <button type="submit" class="send-button">Отправить</button>
+    </div>
+  </form>
+         </div>
 {% endblock %}

@@ -6,8 +6,10 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, CheckinForm, NoteForm
 from beehive.models import User as BeehiveUser
-from beehive.models import Record, Note
+from beehive.models import Record, Note, Message
 import calendar
+from funky import send_to_haiku
+from django.http import JsonResponse
 # Create your views here.
 
 
@@ -89,7 +91,7 @@ def history(request, year=None, month=None):
     current_user = request.user  #надо было делать функцию кек
     beehive_user = BeehiveUser.objects.get(username=current_user)
     user_timezone = ZoneInfo(beehive_user.timezone)
-
+    #Если будет не лень то я сделаю шобы получалось время не на серве но это по сути не особо важно, только при переходе в новый месяц да я могла бы это сделать быстрее чем написала бы этот комм)
     now = datetime.datetime.now() #получаем текущее время на сервере
     month = month or now.month #если месяц не передан то берем текущий
     year = year or now.year #если год не передан то берем текущий
@@ -103,3 +105,15 @@ def history(request, year=None, month=None):
             if day != 0:
                 week[i] = {'day': day, 'mood': moods.get(day)}
     return render(request, "history.html", context={'title': 'Beehive | История', 'notes':Note.objects.filter(user=request.user).order_by('-created_at'), 'username': request.user.username, 'calendar': calendarik, 'year': year, 'month': month})
+
+
+@login_required(redirect_field_name='login')
+def chat(request):
+    messages = Message.objects.filter(user=request.user)
+    if request.method == "POST":
+        message = request.POST.get('message')
+        response = send_to_haiku(message)
+        completion = Message(user=request.user, message=message, response=response)
+        completion.save()
+        return JsonResponse({'message': message, 'response': response})
+    return render(request, 'chat.html', context={'title': 'Beehive | Чат', 'messages': messages})

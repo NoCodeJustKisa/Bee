@@ -27,4 +27,5 @@ urlpatterns = [
     path('create_note/', views.note_creation, name='createnote'),
     path('history/', views.history, name='history'),
     path('history/<int:year>/<int:month>/', views.history, name='history'),
+    path('chat/', views.chat, name='chat'),
 ]
