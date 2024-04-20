@@ -486,3 +486,55 @@ label {
   outline: 0;
   font-size: 22px;
 }
+.calendar {
+    width: 95%;
+    border-collapse: collapse;
+    margin-left: 2.5%;
+    font-family: "Nunito", sans-serif;
+    background-color: #E5F4DB;
+}
+
+.calendar tr {
+    border-bottom: 1px solid #B9CBCF;
+}
+
+.calendar td {
+    width: 14.28%; /* 100% / 7 days */
+    height: 5em;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #000000;
+
+}
+
+.calendar td:hover {
+    background-color: #CCE6E4;
+}
+/*  цвета для календарика */
+.m1 {
+    background-color: #c93d3d;
+}
+
+.m2 {
+    background-color: #ffa684;
+}
+
+.m3 {
+    background-color: #fcd88a;
+}
+
+.m4 {
+    background-color: #e7ff4d;
+}
+
+.m5 {
+    background-color: #a5ff89;
+}
+h2{
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  text-align:center;
+  margin-top:0;
+}

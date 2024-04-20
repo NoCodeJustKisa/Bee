@@ -25,4 +25,6 @@ urlpatterns = [
     path('main/', views.mainpage, name="main"),
     path('register/', views.register, name='register'),
     path('create_note/', views.note_creation, name='createnote'),
+    path('history/', views.history, name='history'),
+    path('history/<int:year>/<int:month>/', views.history, name='history'),
 ]

@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, CheckinForm, NoteForm
 from beehive.models import User as BeehiveUser
 from beehive.models import Record, Note
+import calendar
 # Create your views here.
 
 
@@ -80,3 +81,25 @@ def note_creation(request):
     else:
         form = NoteForm()
     return render (request, "note_creation.html", context={'title': 'Beehive | Создать заметку', 'form': form,'notes':Note.objects.filter(user=request.user).order_by('-created_at'), 'username': request.user.username})
+
+
+@login_required(redirect_field_name='login')
+def history(request, year=None, month=None):
+
+    current_user = request.user  #надо было делать функцию кек
+    beehive_user = BeehiveUser.objects.get(username=current_user)
+    user_timezone = ZoneInfo(beehive_user.timezone)
+
+    now = datetime.datetime.now() #получаем текущее время на сервере
+    month = month or now.month #если месяц не передан то берем текущий
+    year = year or now.year #если год не передан то берем текущий
+
+    calendarik = calendar.monthcalendar(year, month) #получаем календарь на месяц (по умолчанию текущий)
+    records = Record.objects.filter(user = request.user, created_at__year=year, created_at__month=month) #берем все записи пользователя за месяц
+    moods = {record.created_at.astimezone(user_timezone).day: record.mood for record in records} #для каждой отметки в отметках создаем местечко в словарике с ключом день (от 1 до 31) и настроением
+
+    for week in calendarik:
+        for i, day in enumerate(week):
+            if day != 0:
+                week[i] = {'day': day, 'mood': moods.get(day)}
+    return render(request, "history.html", context={'title': 'Beehive | История', 'notes':Note.objects.filter(user=request.user).order_by('-created_at'), 'username': request.user.username, 'calendar': calendarik, 'year': year, 'month': month})

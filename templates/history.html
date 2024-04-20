@@ -1,0 +1,29 @@
+{% extends "mother_app.html" %}
+{% block app %}
+    <h1>История</h1>
+    <h2>{{ month }}.{{ year }}</h2>
+    <table class="calendar">
+    <tr style="background-color:#ffc359">
+        <td>Пон.</td>
+        <td>Вт.</td>
+        <td>Ср.</td>
+        <td>Чт.</td>
+        <td>Пт.</td>
+        <td>Сб.</td>
+        <td>Вск.</td>
+    </tr>
+{% for week in calendar %}
+    <tr>
+    {% for day in week %}
+        <td class="m{{ day.mood.rate }}">
+        {{ day.day }}
+        </td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+    </table>
+    <div style="display:flex; flex-direction: row;">
+    <a class="a-button" href="{% url 'history' year=year month=month|add:'-1' %}">Назад</a>
+    <a class="a-button" href="{% url 'history' year=year month=month|add:'1' %}">Вперед</a>
+    </div>
+{% endblock %}
