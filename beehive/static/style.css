@@ -318,13 +318,13 @@ input{
   border-radius: 14px 14px 14px 14px;
   width:fit-content;
   white-space: initial;
-  max-width:80%;
-  padding:1%;
-  padding-left:5%;
+  max-width:100%;
+  padding:2%;
   font-family: "Nunito",sans-serif;
   font-size: 16px;
   font-weight: 400;
   margin-top:5%;
+  list-style-type: none;
 }
 .user-message{
   background-color:#ffc359;
@@ -332,13 +332,13 @@ input{
   width:fit-content;
   white-space: initial;
   max-width:80%;
-  padding:1%;
-  padding-left:5%;
+  padding:2%;
   font-family: "Nunito",sans-serif;
   font-size: 16px;
   font-weight: 400;
   margin-top:5%;
   float:right;
+  list-style-type: none;
 }
 textarea{
        border: 3px solid #000;
@@ -537,4 +537,10 @@ h2{
   font-style: normal;
   text-align:center;
   margin-top:0;
+}
+.messages-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 0;
 }

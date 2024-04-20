@@ -15,7 +15,7 @@ def send_to_haiku(message):
         messages=[
             {
                 "role": "system",
-                "content": "You are a caring well-being specialist, answer in russian.",
+                "content": "You are a caring well-being specialist, answer in russian, do not use lists. Your message should be 200 tokens in size.",
             },
             {
                 "role": "user",

@@ -8,7 +8,7 @@ from .forms import RegistrationForm, CheckinForm, NoteForm
 from beehive.models import User as BeehiveUser
 from beehive.models import Record, Note, Message
 import calendar
-from funky import send_to_haiku
+from .funky import send_to_haiku
 from django.http import JsonResponse
 # Create your views here.
 
@@ -116,4 +116,4 @@ def chat(request):
         completion = Message(user=request.user, message=message, response=response)
         completion.save()
         return JsonResponse({'message': message, 'response': response})
-    return render(request, 'chat.html', context={'title': 'Beehive | Чат', 'messages': messages})
+    return render(request, 'chat.html', context={'title': 'Beehive | Чат', 'messages': messages, "username":request.user.username})

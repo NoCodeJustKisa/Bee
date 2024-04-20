@@ -3,13 +3,20 @@
     <div class="chat-wrap">
           <h1>Чат</h1>
           <div class="chatbox"> 
-            <!-- Сообщение бота -->
-            <div class="llm-message">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis ex vel laoreet gravida. Mauris maximus ut arcu vel consectetur. Nulla varius lacus ac nisi commodo auctor. Aenean quis est sed velit vulputate pretium. Maecenas et purus orci. Quisque placerat libero eu nibh volutpat efficitur. Pellentesque consequat efficitur iaculis. Morbi tristique mauris eget facilisis interdum. Aenean vehicula nec velit vitae semper.</p></div>
-            <!--Сообщение юзера -->
-            <div class="user-message">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis ex vel laoreet gravida. Mauris maximus ut arcu vel consectetur. Nulla varius lacus ac nisi commodo auctor. Aenean quis est sed velit vulputate pretium. Maecenas et purus orci. Quisque placerat libero eu nibh volutpat efficitur. Pellentesque consequat efficitur iaculis. Morbi tristique mauris eget facilisis interdum. Aenean vehicula nec velit vitae semper.</p>
-            </div>
+              <ul class="messages-list">
+                  {% for message in messages %}
+                      {% if message.user == request.user %}
+            <!-- Сообщение юзера -->
+            <li class="user-message">
+            {{ message.message }}
+            </li>
+            <!--Сообщение llm -->
+            <li class="llm-message">
+            {{ message.response }}
+            </li>
+                      {% endif %}
+                  {% endfor %}
+              </ul>    
           </div>
           
    <form class="message-form">
@@ -21,4 +28,40 @@
     </div>
   </form>
          </div>
+    <script>
+    const messagesList = document.querySelector('.messages-list');
+    const messageForm = document.querySelector('.message-form');
+    const messageInput = document.querySelector('.message-input');
+    messageForm.addEventListener('submit', (event) =>{
+        event.preventDefault();
+        const message = messageInput.value.trim();
+        if (message.length === 0){
+            return;
+        }
+        
+        const messageItem = document.createElement('li');
+        messageItem.classList.add('user-message');
+        messageItem.innerText = message;
+        messagesList.appendChild(messageItem);
+        messageInput.value = '';
+        
+        fetch('', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+            'csrfmiddlewaretoken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            'message': message
+            })
+           })
+        
+            .then(response => response.json())
+            .then(data =>{
+                const response = data.response;
+                const messageItem = document.createElement('li');
+                messageItem.classList.add('llm-message');
+                messageItem.innerText = response;
+                messagesList.appendChild(messageItem);
+            });
+    });
+    </script>
 {% endblock %}
