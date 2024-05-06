@@ -21,14 +21,14 @@ class CheckinForm(forms.ModelForm):
         model = Record
         fields = ('mood', 'activity')
 
-    def clean_mora(self): #mora tipa Mood OR Activity
+    def clean_mora(self):
         cleaned_data = super().clean()
         mood = cleaned_data.get('mood')
         activity = cleaned_data.get('activity')
         if mood is None and activity is None:
             raise forms.ValidationError('Вы не можете ничего не отметить')
 
-    def clean(self): #вызываем мору шобы была у нас кастомная валидация
+    def clean(self): #вызываем clean_mora чтобы была кастомная валидация c проверкой на заполнение хотя бы одного поля
         cleaned_data = super().clean()
         self.clean_mora()
         return cleaned_data

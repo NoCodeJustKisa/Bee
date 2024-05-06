@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="stylesheet" type="text/css"  href="{% static 'style.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+  <div class="home-mainblock">
+    <div class="home-workplace">
+
+      <!--Рабочевое -->
+        <header class="home-header">
+          <div class="home-buttons">
+            <!--Вошедший пользователь -->
+              {% if user.is_authenticated %}
+          <a class="a-home-button" href="/main">В Beehive</a>
+              {% else %}
+            <!--Невошедший -->
+          <a class="a-home-button" href="/accounts/login/">Войти</a>
+          <a class="a-home-button" href="/register">Регистрация</a> 
+              {% endif %}
+          </div>
+    <!--кнопки логина или в приложение -->
+        </header>
+      <div class="home-dec-1">
+      <h1 class="home-h1">Эмоциональный дневник Beehive</h1>
+        <p class="home-p">Эмоциональный дневник — это инструмент для регулярной записи и отслеживания своего настроения и эмоций. Он позволяет фиксировать ежедневные переживания, отмечать преобладающие чувства и анализировать факторы, влияющие на эмоциональное состояние. Ведение подобного дневника помогает лучше понять себя, благодаря ему можно замечать как позитивные, так и негативные паттерны, работать над улучшением самочувствия и осознанностью. </p>
+        
+      </div>
+      <div class="home-dec">
+        <div class="block-container">
+            <div class="block">
+              <img src="{% static 'home1.png'%}" alt="Image 1">
+              <p>Познайте себя через ежедневные отметки настроения. Наше приложение - ваш проводник в мир эмоциональной осознанности.</p>
+            </div>
+            <div class="block">
+              <img src="{% static 'home2.png'%}" alt="Image 2">
+              <p>Встроенная аналитика поможет взглянуть на эмоции под новым углом.</p>
+            </div>
+            <div class="block">
+              <img src="{% static 'home3.png'%}" alt="Image 3">
+              <p>Ваш персональный помощник в путешествии к эмоциональной гармонии. Чатбот всегда готов поддержать и дать совет.</p>
+            </div>
+    </div>
+        
+        
+      </div>
+     </div>
+  </div>
+  </body>
+</html>

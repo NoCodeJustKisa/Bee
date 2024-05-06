@@ -28,4 +28,6 @@ urlpatterns = [
     path('history/', views.history, name='history'),
     path('history/<int:year>/<int:month>/', views.history, name='history'),
     path('chat/', views.chat, name='chat'),
+    path('analytics/', views.analytics, name="analytics"),
+    path('home/', views.home, name="home"),
 ]
