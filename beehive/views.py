@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-import datetime, zoneinfo
+import datetime
+from datetime import datetime as dt
 from zoneinfo import ZoneInfo
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout
@@ -9,7 +10,10 @@ from beehive.models import User as BeehiveUser
 from beehive.models import Record, Note, Message
 import calendar
 from .funky import send_to_haiku
+from django.db.models import Count
 from django.http import JsonResponse
+from django.db.models import F, CharField, Avg
+from django.db.models.functions import Cast
 # Create your views here.
 
 
@@ -132,4 +136,19 @@ def chat(request):
 
 @login_required(redirect_field_name='login')
 def analytics(request):
+    if request.method == "POST":
+        start_date = dt.strptime(request.POST.get('start_date'), "%Y-%m-%d") #str to dt
+        end_date = dt.strptime(request.POST.get('end_date'), "%Y-%m-%d")
+        start_date = start_date.astimezone(ZoneInfo('UTC')) #naive to aware
+        end_date = end_date.astimezone(ZoneInfo('UTC'))
+        records = Record.objects.filter(user=request.user, created_at__range=(start_date, end_date))
+        if not records.exists():
+            return render(request, 'analytics.html', context={'title': 'Beehive | Аналитика', 'username': request.user.username, 'message': 'Недостаточно данных :('})
+        beehive_user = BeehiveUser.objects.get(username=request.user)
+        user_timezone = ZoneInfo(beehive_user.timezone)
+        mood_pie = records.values(mood_name=F('mood__name')).annotate(count=Count('id')).order_by('mood_name')
+        activity_pie = records.values(activity_name=F('activity__name')).annotate(count=Count('id')).order_by('activity_name')
+        mood_line = records.annotate(created_at_str=Cast(F('created_at'), output_field=CharField())).values('created_at_str', 'mood').order_by('created_at')
+        bar_graph = records.values(activity_name=F('activity__name')).annotate(avg_mood=Avg('mood')).order_by('activity_name')
+        return render(request, 'analytics.html', context={'title': 'Beehive | Аналитика', 'username': request.user.username, 'mood_pie':list(mood_pie),'activity_pie':list(activity_pie),"mood_line":list(mood_line), "bar_graph":list(bar_graph),'charts':True})
     return render(request, 'analytics.html', context={'title': 'Beehive | Аналитика', 'username': request.user.username})

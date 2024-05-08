@@ -654,3 +654,44 @@ h2{
   line-height: 20px;
   margin-left:20%;
 }
+.period-form{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+label{
+    font-family: "Nunito",sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.period-form input{
+    width: 30%;
+}
+.period-form label{
+    width: 30%;
+}
+.canvas-container{
+    width:50%;
+}
+.again-button{
+  width:fit-content;
+  margin-right:auto;
+  margin-left:-0.5%;
+  background-color: #ffc359;
+  border: 3px solid black;
+  border-radius: 0 14px 14px 0;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: block;
+  font-family: "Nunito",sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  outline: none;
+}
+.canvas-row{
+    display: flex;
+    justify-content: space-between;
+}

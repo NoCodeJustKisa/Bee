@@ -1,4 +1,156 @@
 {% extends 'mother_app.html' %}
 {% block app %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <h1>Выберите период для анализа</h1>
+    {% if message %}
+    <div class="alert">
+    {{ message }}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+    {% csrf_token %}
+            <div class="period-form">
+    <label for="start_date">Начало:</label>
+    <input type="date" id="start_date" name="start_date" required>
+    <label for="end_date">Конец:</label>
+    <input type="date" id="end_date" name="end_date" required>
+    <input type="submit" value="Анализ" class="again-button">
+            </div>
+    </form>
+ 
+{% if charts %}
+    <br>
+    <div class="check-in">
+<div class="canvas-row"> 
+<div class="canvas-container">      
+    <h2>Ваше настроение:</h2>     
+<canvas id="pieChart"></canvas>
+<script>
+let mpieChartData = {{ mood_pie|safe }};
+let ctx = document.getElementById('pieChart').getContext('2d');
+let mpieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: mpieChartData.map(item => item.mood_name),
+        datasets: [{
+            label: 'Настроение',
+            data: mpieChartData.map(item => item.count),
+            backgroundColor: [
+                'rgb(255,99,99)',
+                'rgb(255,142,103)',
+                'rgb(255,223,145)',
+                'rgb(232,255,163)',
+                'rgb(175,255,171)',
+            ],
+            borderColor: [
+                'rgb(255,99,99)',
+                'rgb(225,135,104)',
+                'rgb(255,223,145)',
+                'rgb(232,255,163)',
+                'rgb(175,255,171)',
+            ],
+            borderWidth: 1
+        }]
+    }
+});
+</script>
+</div>
+    <div class="canvas-container">      
+    <h2>Ваша активность:</h2>     
+<canvas id="pieActivity"></canvas>
+<script>
+let apieChartData = {{ activity_pie|safe }};
+let ctx1 = document.getElementById('pieActivity').getContext('2d');
+let apieChart = new Chart(ctx1, {
+    type: 'pie',
+    data: {
+        labels: apieChartData.map(item => item.activity_name),
+        datasets: [{
+            label: 'Активность',
+            data: apieChartData.map(item => item.count),
+            backgroundColor: [
+                'rgb(137,199,253)',
+                'rgb(234,160,255)',
+                'rgb(145,255,242)',
+                'rgb(134,131,218)',
+                'rgb(231,193,166)',
+            ],
+            borderColor: [
+                'rgb(137,199,253)',
+                'rgb(234,160,255)',
+                'rgb(145,255,242)',
+                'rgb(134,131,218)',
+                'rgb(231,193,166)',
+            ],
+            borderWidth: 1
+        }]
+    }
+});
+</script>
+</div>
+    </div> 
+ <div class="canvas-row">
+<canvas id="lineGraph"></canvas>
+<script>
+let lineGraphData = {{ mood_line|safe }};
+let ctx2 = document.getElementById('lineGraph').getContext('2d');
+let lineGraph = new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels: lineGraphData.map(item => new Date (item.created_at_str).toLocaleDateString()),
+        datasets: [{
+            label: 'Изменения в настроении',
+            data: lineGraphData.map(item => item.mood),
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            x:{
+                ticks:{
+                    display:false
+                }
+                
+            },
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+ </div>
+     <div class="canvas-row">
+         <canvas id="barGraph"></canvas>
+<script>
+let barGraphData = {{ bar_graph|safe }};
+let ctx3 = document.getElementById('barGraph').getContext('2d');
+let barGraph = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        labels: barGraphData.map(item => item.activity_name),
+        datasets: [{
+            label: 'Среднее настроение по активности',
+            data: barGraphData.map(item => item.avg_mood),
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+     </div>
+    
+    </div>
+{%endif%}    
 {% endblock %}
