@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="Analytics finished">
+    <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="Unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/beehive/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/tests.py" afterDir="false" />
     </list>
@@ -154,7 +154,7 @@
       <workItem from="1715110882018" duration="2754000" />
       <workItem from="1715170672184" duration="18399000" />
       <workItem from="1715197011485" duration="2241000" />
-      <workItem from="1715199717588" duration="2990000" />
+      <workItem from="1715199717588" duration="5381000" />
     </task>
     <task id="LOCAL-00001" summary="What do I even say">
       <option name="closed" value="true" />
@@ -356,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715199417036</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Unit tests">
+      <option name="closed" value="true" />
+      <created>1715203007126</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1715203007126</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +398,7 @@
     <MESSAGE value="contexless chat implemented" />
     <MESSAGE value="Staring the analytics" />
     <MESSAGE value="Analytics finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Analytics finished" />
+    <MESSAGE value="Unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unit tests" />
   </component>
 </project>

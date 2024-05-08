@@ -3,6 +3,7 @@ from django.test import Client, TestCase
 from beehive.models import Record, Note, Message, Mood, Activity
 from zoneinfo import ZoneInfo
 from datetime import datetime
+import time
 from django.contrib.auth import get_user_model
 User = get_user_model()
 class BeehiveViewsTest(TestCase):
@@ -47,7 +48,7 @@ class BeehiveViewsTest(TestCase):
         self.client.login(username='testuser', password='12345')
         response = self.client.post('/analytics/', {'start_date': '2022-01-01', 'end_date': '2022-12-31'})
         self.assertEqual(response.status_code, 200)
-#Комплект 2 Дополнительные проверки
+#Комплект 2 провалы и просто штуки
 
     def test_authenticated_access(self): #тест на доступ к страницам без авторизации
         self.client.logout()
@@ -90,3 +91,14 @@ class BeehiveViewsTest(TestCase):
         self.client.login(username='testuser', password='12345')
         response = self.client.post('/chat/', {'message': ''})  # Пустое сообщение
         self.assertEqual(response.status_code, 200)  # Форма вернется с ошибкой
+
+    def test_post_request(self): #Супер тест на получение ответа от ЛЛМ
+        self.client.login(username='testuser', password='12345')
+        response = self.client.post('/chat/', {'message': 'Hello, world!'})
+        self.assertEqual(response.status_code, 200)
+        time.sleep(30) # Даем время ЛЛМ на ответ
+        new_message = Message.objects.order_by('-id').first()  # Получаем последнее сообщение
+        print('new_message.message: ', new_message.message)
+        print('new_message.response: ', new_message.response)
+        self.assertIsNotNone(new_message.response)  # Проверяем, что ответ не пустой
+        self.assertNotEqual(new_message.response, '')  # Проверяем, что ответ ТООООЧНО не пустой
