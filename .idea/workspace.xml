@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="Oh I made such a  &lt;3 unit test muaaah">
+    <list default="true" id="09eafea1-1105-4278-a6ef-7f09d76a2577" name="Changes" comment="17 unit-tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beehive/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beehive/funky.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/funky.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beehive/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/beehive/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +155,12 @@
       <workItem from="1715110882018" duration="2754000" />
       <workItem from="1715170672184" duration="18399000" />
       <workItem from="1715197011485" duration="2241000" />
-      <workItem from="1715199717588" duration="11846000" />
+      <workItem from="1715199717588" duration="11977000" />
+      <workItem from="1715293140370" duration="458000" />
+      <workItem from="1715296936057" duration="554000" />
+      <workItem from="1715347953683" duration="5866000" />
+      <workItem from="1715363081162" duration="850000" />
+      <workItem from="1715364674841" duration="6255000" />
     </task>
     <task id="LOCAL-00001" summary="What do I even say">
       <option name="closed" value="true" />
@@ -372,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715205314004</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="17 unit-tests">
+      <option name="closed" value="true" />
+      <created>1715211702643</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715211702643</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,6 +422,7 @@
     <MESSAGE value="Analytics finished" />
     <MESSAGE value="Unit tests" />
     <MESSAGE value="Oh I made such a  &lt;3 unit test muaaah" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oh I made such a  &lt;3 unit test muaaah" />
+    <MESSAGE value="17 unit-tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="17 unit-tests" />
   </component>
 </project>

@@ -124,13 +124,18 @@ def history(request, year=None, month=None):
 
 @login_required(redirect_field_name='login')
 def chat(request):
-    messages = Message.objects.filter(user=request.user)
-    if request.method == "POST":
-        message = request.POST.get('message')
-        response = send_to_haiku(message)
+    messages = Message.objects.filter(user=request.user) # Из бд вытаскиваем все сообщения пользователя
+    if request.method == "POST": #если метод пост (т.е. пользователь отправил сообщение)
+        message = request.POST.get('message') #берем сообщение пользователя из формы
+        msg_history = Message.objects.filter(user=request.user).order_by('-created_at')[:5][::-1] #берем последние 5 сообщений и ставим их в порядке от раннего к позднему
+        conversation_history = [
+            ({'role': 'user', 'content': msg.message}, {'role': 'assistant', 'content': msg.response}) for msg in msg_history]
+        #создаем историю сообщений в формате, который принимает API, т.е. словарь типа 'роль':'сообщение'
+        conversation_history = [item for sublist in conversation_history for item in sublist] #делаем из списка списков один список
+        response = send_to_haiku(message, conversation_history) #отправляем сообщение и историю в функцию, которая отправляет его в API и получает ответ
         completion = Message(user=request.user, message=message, response=response)
-        completion.save()
-        return JsonResponse({'message': message, 'response': response})
+        completion.save() #сохраняем сообщение и ответ в бд
+        return JsonResponse({'message': message, 'response': response}) #возвращаем ответ в формате json, чтобы он отобразился на странице
     return render(request, 'chat.html', context={'title': 'Beehive | Чат', 'messages': messages, "username":request.user.username})
 
 
